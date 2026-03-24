@@ -1,0 +1,154 @@
+<!-- Stores Management (Simplified) -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#dadada",
+              "on-surface-variant": "#40493d",
+              "tertiary-container": "#cf2f2d",
+              "on-primary-container": "#cbffc2",
+              "primary": "#0d631b",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#ffdad6",
+              "on-tertiary-fixed": "#410003",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#88d982",
+              "on-primary-fixed-variant": "#005312",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#d6e3ff",
+              "on-secondary-fixed-variant": "#00468c",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "secondary": "#005db7",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "secondary-container": "#64a1ff",
+              "surface-container-low": "#f3f3f3",
+              "outline": "#707a6c",
+              "primary-fixed": "#a3f69c",
+              "tertiary": "#ab1118",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#f9f9f9",
+              "on-primary-fixed": "#002204",
+              "on-secondary-container": "#003670",
+              "inverse-primary": "#88d982",
+              "on-secondary-fixed": "#001b3d",
+              "inverse-surface": "#2f3131",
+              "inverse-on-surface": "#f1f1f1",
+              "surface-container-highest": "#e2e2e2",
+              "background": "#f9f9f9",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface": "#1a1c1c",
+              "secondary-fixed-dim": "#a9c7ff",
+              "surface-tint": "#1b6d24",
+              "surface-variant": "#e2e2e2",
+              "outline-variant": "#bfcaba",
+              "on-tertiary-fixed-variant": "#93000e",
+              "on-background": "#1a1c1c",
+              "on-tertiary-container": "#ffeeeb",
+              "on-tertiary": "#ffffff",
+              "surface": "#f9f9f9",
+              "primary-container": "#2e7d32",
+              "surface-container": "#eeeeee"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .btn-shadow {
+            box-shadow: 0 10px 15px -3px rgba(13, 99, 27, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9f9] dark:bg-neutral-900 w-full top-0 z-50 sticky">
+<div class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#0d631b] dark:text-green-500 text-3xl" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-manrope text-2xl font-bold tracking-tight text-[#1a1c1c] dark:text-neutral-100"><span style="font-family: Manrope; font-size: 20px; letter-spacing: -0.5px; background-color: rgb(255, 255, 255);">JN FOODS</span></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="admin-only text-neutral-500 dark:text-neutral-400 hover:opacity-80 transition-opacity font-medium" href="owner_dashboard.html">Dashboard</a>
+<a class="text-[#0d631b] dark:text-green-400 hover:opacity-80 transition-opacity font-bold" href="stores_management.html">Stores</a>
+<a class="admin-only text-neutral-500 dark:text-neutral-400 hover:opacity-80 transition-opacity font-medium" href="items_management.html">Items</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 pt-16">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-2 block">Operational Overview</span>
+<h1 class="text-5xl font-extrabold tracking-tight text-on-surface">Retail Network</h1>
+</div>
+<button onclick="window.location.href='owner_dashboard.html'" class="admin-only w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-highest active:scale-95 transition-all text-on-surface">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+<!-- Stores Grid -->
+<div id="stores-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Dynamic Content Loaded from js/stores.js -->
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-t border-neutral-100 dark:border-neutral-800 shadow-[0_-4px_20px_0_rgba(0,0,0,0.06)] z-50 rounded-t-[2rem]">
+<a class="admin-only flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors" href="owner_dashboard.html">
+<span class="material-symbols-outlined text-2xl" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#eeeeee] dark:bg-neutral-800 text-[#0d631b] dark:text-green-400 rounded-[2rem] px-6 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 active:scale-[0.98] transition-transform duration-150" href="stores_management.html">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider mt-1">Stores</span>
+</a>
+<a class="admin-only flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors" href="items_management.html">
+<span class="material-symbols-outlined text-2xl" data-icon="inventory_2">inventory_2</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider">Items</span>
+</a>
+<button id="logout-btn" class="flex flex-col items-center text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="logout">logout</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider">Logout</span>
+</button>
+</nav>
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/stores.js"></script>
+<script type="module">
+    import { signOut } from '../js/auth.js';
+    document.getElementById('logout-btn')?.addEventListener('click', signOut);
+</script>
+</body></html>

@@ -1,0 +1,206 @@
+<!-- Owner Dashboard (Simplified) -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Tactile Artisan - Owner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#dadada",
+                        "on-surface-variant": "#40493d",
+                        "tertiary-container": "#cf2f2d",
+                        "on-primary-container": "#cbffc2",
+                        "primary": "#0d631b",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-tertiary-fixed": "#410003",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#88d982",
+                        "on-primary-fixed-variant": "#005312",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "secondary": "#005db7",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-container": "#64a1ff",
+                        "surface-container-low": "#f3f3f3",
+                        "outline": "#707a6c",
+                        "primary-fixed": "#a3f69c",
+                        "tertiary": "#ab1118",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed": "#002204",
+                        "on-secondary-container": "#003670",
+                        "inverse-primary": "#88d982",
+                        "on-secondary-fixed": "#001b3d",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-container-highest": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "surface-tint": "#1b6d24",
+                        "surface-variant": "#e2e2e2",
+                        "outline-variant": "#bfcaba",
+                        "on-tertiary-fixed-variant": "#93000e",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-container": "#ffeeeb",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "primary-container": "#2e7d32",
+                        "surface-container": "#eeeeee"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 z-50 bg-[#f9f9f9] dark:bg-neutral-900 sticky">
+<div class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#0d631b] text-3xl" data-icon="bakery_dining">bakery_dining</span>
+<h1 class="text-[#1a1c1c] dark:text-neutral-100 font-bold text-xl font-headline tracking-tight"><span style="background-color: rgb(255, 255, 255);">JN FOODS</span></h1>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#0d631b] dark:text-green-400 font-bold font-label text-sm uppercase tracking-wider" href="owner_dashboard.html">Dashboard</a>
+<a class="text-neutral-500 dark:text-neutral-400 hover:opacity-80 transition-opacity font-label text-sm uppercase tracking-wider" href="stores_management.html">Stores</a>
+<a class="text-neutral-500 dark:text-neutral-400 hover:opacity-80 transition-opacity font-label text-sm uppercase tracking-wider" href="items_management.html">Items</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="logout-btn" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-highest active:scale-95 transition-all text-on-surface" style="">
+<span class="material-symbols-outlined" data-icon="logout" style="">logout</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 pt-12 space-y-12">
+<!-- Hero: Total Outstanding Credit -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+<div class="lg:col-span-8">
+<p class="text-on-surface-variant font-label font-medium uppercase tracking-[0.2em] mb-4">Financial Overview</p>
+<h2 class="text-on-surface font-headline font-extrabold text-5xl md:text-6xl tracking-tighter">Total Outstanding</h2>
+<div class="mt-6 flex items-baseline gap-2">
+<span id="total-outstanding-credit" class="text-primary font-headline font-extrabold text-7xl md:text-8xl">₹ ---</span>
+<span class="text-on-surface-variant text-xl font-medium">unpaid credit</span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="text-sm font-label text-on-surface-variant">Collections Today</p>
+<p class="text-2xl font-headline font-bold text-on-surface">₹45,200</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="payments">payments</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Quick Actions & Recent Deliveries -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Quick Actions (Left Sidebar Style) -->
+<div class="md:col-span-4 space-y-6">
+<h3 class="text-xl font-headline font-bold text-on-surface px-2">Management</h3>
+<div class="grid grid-cols-1 gap-4">
+<button onclick="window.location.href='stores_management.html'" class="h-[70px] w-full bg-primary bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-headline font-bold text-lg flex items-center justify-between px-8 active:scale-[0.98] transition-transform duration-150 shadow-sm">
+<span class="">Manage Stores</span>
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</button>
+<button onclick="window.location.href='items_management.html'" class="h-[70px] w-full bg-secondary-fixed text-on-secondary-fixed-variant rounded-lg font-headline font-bold text-lg flex items-center justify-between px-8 active:scale-[0.98] transition-transform duration-150">
+<span class="">Manage Items</span>
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+</button>
+<button onclick="window.location.href='billing.html'" class="h-[70px] w-full bg-surface-container text-on-surface rounded-lg font-headline font-bold text-lg flex items-center justify-between px-8 active:scale-[0.98] transition-transform duration-150">
+<span class="">View Bills</span>
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</button>
+</div>
+<!-- Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/15 shadow-sm mt-8">
+<h4 class="font-headline font-bold text-lg mb-4">Production Summary</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Total Batches</span>
+<span class="font-bold">42</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Pending Delivery</span>
+<span class="font-bold">12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Deliveries (Main Content Area) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-8 lg:p-12 overflow-hidden">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-2xl font-headline font-extrabold text-on-surface tracking-tight">Recent Deliveries</h3>
+<button class="text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2">
+                        View All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div id="recent-deliveries-list" class="space-y-6">
+    <!-- Dynamic Recent Deliveries Loaded from js/dashboard.js -->
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-t border-neutral-100 dark:border-neutral-800 rounded-t-[2rem] z-50 shadow-[0_-4px_20px_0_rgba(0,0,0,0.06)] md:hidden">
+<a class="flex flex-col items-center justify-center bg-[#eeeeee] dark:bg-neutral-800 text-[#0d631b] dark:text-green-400 rounded-[2rem] px-6 py-3 transition-transform active:scale-[0.98] duration-150" href="owner_dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-500 px-6 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-transform active:scale-[0.98] duration-150" href="stores_management.html">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider mt-1">Stores</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-500 px-6 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-transform active:scale-[0.98] duration-150" href="items_management.html">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-inter text-[0.75rem] font-medium uppercase tracking-wider mt-1">Items</span>
+</a>
+</nav>
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/dashboard.js"></script>
+<script type="module">
+    import { signOut } from '../js/auth.js';
+    document.getElementById('logout-btn')?.addEventListener('click', signOut);
+</script>
+</body></html>

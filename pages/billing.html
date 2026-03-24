@@ -1,0 +1,182 @@
+<!-- Billing Screen (Simplified) -->
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#dadada",
+              "on-surface-variant": "#40493d",
+              "tertiary-container": "#cf2f2d",
+              "on-primary-container": "#cbffc2",
+              "primary": "#0d631b",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#ffdad6",
+              "on-tertiary-fixed": "#410003",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#88d982",
+              "on-primary-fixed-variant": "#005312",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#d6e3ff",
+              "on-secondary-fixed-variant": "#00468c",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "secondary": "#005db7",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "secondary-container": "#64a1ff",
+              "surface-container-low": "#f3f3f3",
+              "outline": "#707a6c",
+              "primary-fixed": "#a3f69c",
+              "tertiary": "#ab1118",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#f9f9f9",
+              "on-primary-fixed": "#002204",
+              "on-secondary-container": "#003670",
+              "inverse-primary": "#88d982",
+              "on-secondary-fixed": "#001b3d",
+              "inverse-surface": "#2f3131",
+              "inverse-on-surface": "#f1f1f1",
+              "surface-container-highest": "#e2e2e2",
+              "background": "#f9f9f9",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface": "#1a1c1c",
+              "secondary-fixed-dim": "#a9c7ff",
+              "surface-tint": "#1b6d24",
+              "surface-variant": "#e2e2e2",
+              "outline-variant": "#bfcaba",
+              "on-tertiary-fixed-variant": "#93000e",
+              "on-background": "#1a1c1c",
+              "on-tertiary-container": "#ffeeeb",
+              "on-tertiary": "#ffffff",
+              "surface": "#f9f9f9",
+              "primary-container": "#2e7d32",
+              "surface-container": "#eeeeee"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .bill-divider {
+            border-top: 2px dashed rgba(112, 122, 108, 0.3); /* outline with opacity */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9f9] dark:bg-neutral-900 w-full top-0 z-50 sticky shadow-sm">
+<div class="flex items-center gap-4 px-6 py-4 max-w-3xl mx-auto">
+<button id="back-btn" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-highest active:scale-95 transition-all text-on-surface">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-xl font-bold tracking-tight">Invoice Details</h1>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-4 py-8">
+<!-- Delivery Invoice Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 sm:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)] relative overflow-hidden">
+<!-- Store Details & Meta -->
+<div class="flex flex-col sm:flex-row justify-between items-start gap-6 mb-10 relative z-10">
+<div>
+<p class="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-2">Billed To</p>
+<h2 id="display-store-name" class="font-headline text-xl font-bold text-on-surface">Downtown Patisserie</h2>
+<p class="text-on-surface-variant text-sm mt-1">Store ID: <span class="font-semibold text-on-surface">DP-402</span></p>
+</div>
+<div class="bg-surface-container py-3 px-5 rounded-xl text-left sm:text-right min-w-[200px]">
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-widest mb-1">Invoice No.</p>
+<p id="display-invoice-no" class="font-headline font-bold text-lg text-on-surface">INV-2023-1142</p>
+<p id="display-date" class="text-xs text-on-surface-variant mt-2">24 Oct 2023, 05:30 AM</p>
+</div>
+</div>
+<!-- Driver Info -->
+<div class="flex items-center gap-4 mb-8 bg-surface-bright p-4 rounded-xl border border-surface-variant">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-widest">Delivered By</p>
+<p id="display-driver-info" class="font-headline font-bold text-on-surface">Rajesh K. (Vehicle: AP-09-CD-4567)</p>
+</div>
+</div>
+<!-- Line Items Header (Desktop) -->
+<div class="hidden sm:grid grid-cols-12 gap-4 pb-3 mb-4 border-b border-outline-variant/30 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+<div class="col-span-6">Item Description</div>
+<div class="col-span-2 text-center">Qty</div>
+<div class="col-span-2 text-right">Rate</div>
+<div class="col-span-2 text-right">Amount</div>
+</div>
+<!-- Line Items Container -->
+<div id="line-items-container" class="space-y-4 sm:space-y-0 sm:divide-y sm:divide-outline-variant/20 mb-10">
+    <!-- Dynamic Items Loaded from billing.js -->
+</div>
+<!-- Totals Section -->
+<div class="bill-divider pt-8 mb-8">
+<div class="flex justify-between items-center mb-4">
+<span class="text-on-surface-variant font-medium">Subtotal</span>
+<span id="display-subtotal" class="font-headline font-bold text-xl text-on-surface">₹0</span>
+</div>
+<div class="flex justify-between items-center mb-6">
+<span class="text-on-surface-variant font-medium">Delivery &amp; Handling</span>
+<span class="font-headline font-bold text-xl text-on-surface">₹250</span>
+</div>
+<div class="bg-surface-container-high rounded-xl p-6 flex justify-between items-end">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Total Invoice Amount</p>
+<p class="text-xs text-on-surface-variant max-w-[200px]">Charged to Store Credit</p>
+</div>
+<span id="display-total" class="font-headline font-extrabold text-4xl sm:text-5xl text-on-surface tracking-tighter">₹0</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-4 mt-10 w-full">
+<button class="flex-1 h-[64px] border border-outline-variant text-on-surface font-headline font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-surface-container-low active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                Download PDF
+            </button>
+<button class="flex-1 h-[64px] bg-primary text-on-primary font-headline font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-[#0a4f15] active:scale-[0.98] transition-all shadow-md">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                Share Invoice
+            </button>
+</div>
+<!-- Status Badge (Absolute Positioned for visual flair) -->
+<div class="absolute -right-6 top-10 transform origin-bottom-right rotate-45 pointer-events-none origin-bottom-right">
+<div class="bg-primary-fixed text-on-primary-fixed-variant font-bold text-sm tracking-widest uppercase py-2 px-12 shadow-sm text-center w-full">
+                Delivered
+            </div>
+</div>
+</div>
+</main>
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/billing.js"></script>
+</body></html>
