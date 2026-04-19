@@ -155,3 +155,13 @@ export function getRedirectPage(profile) {
     if (!profile || !profile.role) return 'login.html';
     return profile.role === 'admin' ? 'owner_dashboard.html' : 'stores_management.html';
 }
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    // Note: pages are in /pages, sw is in root
+    navigator.serviceWorker.register('../sw.js', { scope: '/' })
+      .then(reg => console.log('ServiceWorker registered with scope:', reg.scope))
+      .catch(err => console.error('ServiceWorker registration failed:', err));
+  });
+}

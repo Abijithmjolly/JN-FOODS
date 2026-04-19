@@ -1,0 +1,16 @@
+{
+  "name": "JN-FOODS",
+  "short_name": "JN-FOODS",
+  "start_url": "pages/login.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f59e0b",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "192x192 512x512 any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
